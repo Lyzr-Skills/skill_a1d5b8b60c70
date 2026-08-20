@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IntelligenceEvent",
+  "type": "object",
+  "properties": {
+    "event_id": { "type": "string" },
+    "competitor_id": { "type": "string" },
+    "event_type": { "type": "string", "enum": ["pricing_change", "product_launch", "positioning_shift", "campaign_launch", "sentiment_swing", "hiring_spree", "acquisition", "partnership", "other"] },
+    "observed_at": { "type": "string", "format": "date" },
+    "previous_state": { "type": "object" },
+    "current_state": { "type": "object" },
+    "evidence_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "confidence": { "type": "string", "enum": ["high", "medium", "low", "unverified"] }
+  },
+  "required": ["event_id", "competitor_id", "event_type", "observed_at", "previous_state", "current_state", "evidence_ids", "confidence"]
+}
