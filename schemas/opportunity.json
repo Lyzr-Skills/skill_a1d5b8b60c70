@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Opportunity",
+  "type": "object",
+  "properties": {
+    "opportunity_id": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "category": { "type": "string", "enum": ["market_gap", "competitor_weakness", "pricing_gap", "product_gap", "positioning_gap", "distribution_gap"] },
+    "market_potential": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "strategic_fit": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "feasibility": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "confidence": { "type": "string", "enum": ["high", "medium", "low", "unverified"] },
+    "opportunity_score": { "type": "number" },
+    "inference_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["opportunity_id", "title", "category", "market_potential", "strategic_fit", "feasibility", "confidence", "opportunity_score", "inference_ids"]
+}
