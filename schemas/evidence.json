@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Evidence",
+  "type": "object",
+  "properties": {
+    "evidence_id": { "type": "string" },
+    "claim": { "type": "string" },
+    "evidence_detail": { "type": "string" },
+    "source": { "type": "string" },
+    "source_type": { "type": "string", "enum": ["official_website", "official_announcement", "official_documentation", "official_pricing", "regulatory_filing", "company_blog", "reputable_journalism", "industry_publication", "analyst_research", "community_forum", "social_media", "user_reviews", "anonymous_post", "scraped_aggregator", "unattributed_claim"] },
+    "published_date": { "type": "string", "format": "date" },
+    "observed_date": { "type": "string", "format": "date" },
+    "confidence": { "type": "string", "enum": ["high", "medium", "low", "unverified"] },
+    "classification": { "type": "string", "enum": ["verified_fact", "observed_signal", "inference", "hypothesis"] },
+    "reasoning": { "type": "string" }
+  },
+  "required": ["evidence_id", "claim", "source", "source_type", "observed_date", "confidence", "classification"]
+}
