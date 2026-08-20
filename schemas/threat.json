@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Threat",
+  "type": "object",
+  "properties": {
+    "threat_id": { "type": "string" },
+    "competitor_id": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "category": { "type": "string", "enum": ["product", "pricing", "distribution", "brand", "customer", "technology"] },
+    "impact": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "probability": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "proximity": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "confidence": { "type": "string", "enum": ["high", "medium", "low", "unverified"] },
+    "threat_score": { "type": "number" },
+    "inference_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["threat_id", "competitor_id", "title", "category", "impact", "probability", "proximity", "confidence", "threat_score", "inference_ids"]
+}
