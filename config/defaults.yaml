@@ -1,0 +1,16 @@
+# Competitive Intelligence Defaults
+target_company: "AcmeCorp"
+market: "Cloud Security & Compliance"
+primary_geography: "US"
+min_confidence_for_action: "medium"
+disconfirmation_required: true
+monitored_competitors:
+  - "CompetitorX"
+  - "CompetitorY"
+  - "CompetitorZ"
+monitoring_frequency: "weekly"
+priority_levels:
+  critical: 4
+  high: 3
+  medium: 2
+  low: 1
