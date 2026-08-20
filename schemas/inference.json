@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Inference",
+  "type": "object",
+  "properties": {
+    "inference_id": { "type": "string" },
+    "competitor_id": { "type": "string" },
+    "claim": { "type": "string" },
+    "supporting_signal_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "disconfirming_evidence_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "confidence": { "type": "string", "enum": ["high", "medium", "low", "unverified"] },
+    "reasoning": { "type": "string" },
+    "strategic_implication": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["inference_id", "competitor_id", "claim", "supporting_signal_ids", "disconfirming_evidence_ids", "confidence", "reasoning"]
+}
