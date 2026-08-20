@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IntelligenceReport",
+  "type": "object",
+  "properties": {
+    "report_id": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "company": { "type": "string" },
+        "market": { "type": "string" },
+        "geography": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" }
+      },
+      "required": ["company", "market", "created_at"]
+    },
+    "executive_summary": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "competitors": {
+      "type": "array",
+      "items": { "$ref": "competitor.json" }
+    },
+    "recent_events": {
+      "type": "array",
+      "items": { "$ref": "intelligence-event.json" }
+    },
+    "inferences": {
+      "type": "array",
+      "items": { "$ref": "inference.json" }
+    },
+    "threats": {
+      "type": "array",
+      "items": { "$ref": "threat.json" }
+    },
+    "opportunities": {
+      "type": "array",
+      "items": { "$ref": "opportunity.json" }
+    },
+    "evidence_vault": {
+      "type": "array",
+      "items": { "$ref": "evidence.json" }
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["report_id", "metadata", "executive_summary", "competitors", "recent_events", "inferences", "threats", "opportunities", "evidence_vault", "recommended_actions"]
+}
