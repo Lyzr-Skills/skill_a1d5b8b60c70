@@ -1,0 +1,38 @@
+# Source Hierarchy and Policy
+tiers:
+  tier_1:
+    name: "Primary Sources"
+    weight: 1.0
+    allowed_sources:
+      - "official_website"
+      - "official_announcement"
+      - "official_documentation"
+      - "official_pricing"
+      - "regulatory_filing"
+      - "company_blog"
+  tier_2:
+    name: "High-Quality Independent Sources"
+    weight: 0.75
+    allowed_sources:
+      - "reputable_journalism"
+      - "industry_publication"
+      - "analyst_research"
+  tier_3:
+    name: "Community Sources"
+    weight: 0.4
+    allowed_sources:
+      - "community_forum"
+      - "social_media"
+      - "user_reviews"
+  tier_4:
+    name: "Low-Confidence Sources"
+    weight: 0.1
+    allowed_sources:
+      - "anonymous_post"
+      - "scraped_aggregator"
+      - "unattributed_claim"
+
+policy:
+  never_silent_tier_4_as_fact: true
+  min_corroboration_for_medium_confidence: 2
+  contradiction_resolution_strategy: "newest_primary"
