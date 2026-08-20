@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CompetitorProfile",
+  "type": "object",
+  "properties": {
+    "competitor_id": { "type": "string" },
+    "name": { "type": "string" },
+    "type": { "type": "string", "enum": ["direct", "indirect", "emerging", "substitute", "potential"] },
+    "website": { "type": "string", "format": "uri" },
+    "geography": { "type": "array", "items": { "type": "string" } },
+    "target_customer": { "type": "array", "items": { "type": "string" } },
+    "positioning": {
+      "type": "object",
+      "properties": {
+        "primary_claim": { "type": "string" },
+        "differentiator": { "type": "string" },
+        "value_proposition": { "type": "string" }
+      },
+      "required": ["primary_claim", "differentiator"]
+    },
+    "pricing": {
+      "type": "object",
+      "properties": {
+        "model": { "type": "string" },
+        "plans": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "price": { "type": "string" },
+              "features": { "type": "array", "items": { "type": "string" } }
+            },
+            "required": ["name", "price"]
+          }
+        }
+      }
+    },
+    "strengths": { "type": "array", "items": { "type": "string" } },
+    "weaknesses": { "type": "array", "items": { "type": "string" } },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["competitor_id", "name", "type", "updated_at"]
+}
